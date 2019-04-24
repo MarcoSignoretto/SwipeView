@@ -2,6 +2,7 @@ package it.marcosignoretto.swipeview
 
 import android.animation.ValueAnimator
 import android.content.Context
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -108,6 +109,31 @@ class SwipeView : ConstraintLayout {
                 }
             }
         })
+    }
+
+    override fun onSaveInstanceState(): Parcelable? {
+        val savedState = SavedState(super.onSaveInstanceState())
+        savedState.isOpen = isOpen
+        return savedState
+    }
+
+    public override fun onRestoreInstanceState(state: Parcelable) {
+        if (state is SavedState) {
+            super.onRestoreInstanceState(state.superState)
+            isOpen = state.isOpen
+        } else {
+            super.onRestoreInstanceState(state)
+        }
+
+        restore(isOpen)
+    }
+
+    private fun restore(isOpen: Boolean) {
+        if (isOpen) {
+            open()
+        } else {
+            close()
+        }
     }
 
     override fun setOnClickListener(l: OnClickListener?) {
