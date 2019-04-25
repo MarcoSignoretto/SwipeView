@@ -1,4 +1,4 @@
-package it.marcosignoretto.swipeview
+package io.github.marcosignoretto.swipeview
 
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintSet

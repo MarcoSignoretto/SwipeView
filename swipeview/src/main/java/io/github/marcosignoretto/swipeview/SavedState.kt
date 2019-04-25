@@ -1,4 +1,4 @@
-package it.marcosignoretto.swipeview
+package io.github.marcosignoretto.swipeview
 
 import android.os.Parcel
 import android.os.Parcelable

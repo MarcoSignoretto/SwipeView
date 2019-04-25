@@ -1,11 +1,12 @@
-package it.marcosignoretto.swipeviewexample
+package io.github.marcosignoretto.swipeviewexample
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import it.marcosignoretto.swipeview.SwipeView
-import it.marcosignoretto.swipeview.SwipeViewListener
+import io.github.marcosignoretto.swipeview.SwipeView
+import io.github.marcosignoretto.swipeview.SwipeViewListener
+import it.marcosignoretto.swipeviewexample.R
 
 class MainActivity : AppCompatActivity() {
 

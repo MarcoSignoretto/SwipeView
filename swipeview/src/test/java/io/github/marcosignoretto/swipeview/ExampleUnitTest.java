@@ -1,4 +1,4 @@
-package it.marcosignoretto.swipeview;
+package io.github.marcosignoretto.swipeview;
 
 import org.junit.Test;
 

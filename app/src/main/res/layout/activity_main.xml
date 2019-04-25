@@ -5,16 +5,16 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent" android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context="io.github.marcosignoretto.swipeviewexample.MainActivity">
 
     <!-- Default SwipeView -->
-    <it.marcosignoretto.swipeview.SwipeView
+    <io.github.marcosignoretto.swipeview.SwipeView
             android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
 
     <!-- Default with custom layout -->
-    <it.marcosignoretto.swipeview.SwipeView
+    <io.github.marcosignoretto.swipeview.SwipeView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:back_layout="@layout/delete_back_view"
@@ -22,12 +22,12 @@
     />
 
     <!-- Default SwipeView -->
-    <it.marcosignoretto.swipeview.SwipeView
+    <io.github.marcosignoretto.swipeview.SwipeView
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
 
     <!-- Default with custom layout -->
-    <it.marcosignoretto.swipeview.SwipeView
+    <io.github.marcosignoretto.swipeview.SwipeView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:back_layout="@layout/delete_back_view"

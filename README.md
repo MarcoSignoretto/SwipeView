@@ -19,7 +19,7 @@ You can specify the `layout` you want to use as a `front_layout` and the one you
 
 #### Swipe view with default layout
 ```xml
-<it.marcosignoretto.swipeview.SwipeView
+<io.github.marcosignoretto.swipeview.SwipeView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
@@ -28,7 +28,7 @@ You can specify the `layout` you want to use as a `front_layout` and the one you
 You can specify the `layout` resource file that you want to use as a `front_layout` and the one you want to use as `back_layout` using the appropriate xml attributes.
 
 ```xml
-<it.marcosignoretto.swipeview.SwipeView
+<io.github.marcosignoretto.swipeview.SwipeView
     android:id="@+id/swipeView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package it.marcosignoretto.swipeview
+package io.github.marcosignoretto.swipeview
 
 import android.animation.ValueAnimator
 import android.content.Context
@@ -10,6 +10,7 @@ import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.ViewCompat
+import it.marcosignoretto.swipeview.R
 
 
 /**
@@ -52,8 +53,14 @@ class SwipeView : ConstraintLayout {
         var backLayoutRes = R.layout.back_layout_default
         if (attrs != null) {
             val ta = context.obtainStyledAttributes(attrs, R.styleable.SwipeView)
-            frontLayoutRes = ta.getResourceId(R.styleable.SwipeView_front_layout, R.layout.front_layout_default)
-            backLayoutRes = ta.getResourceId(R.styleable.SwipeView_back_layout, R.layout.back_layout_default)
+            frontLayoutRes = ta.getResourceId(
+                R.styleable.SwipeView_front_layout,
+                R.layout.front_layout_default
+            )
+            backLayoutRes = ta.getResourceId(
+                R.styleable.SwipeView_back_layout,
+                R.layout.back_layout_default
+            )
 //            openingSize = -Math.abs(ta.getDimension(R.styleable.SwipeView_back_layout, OPENING_SIZE))
             ta.recycle()
         }

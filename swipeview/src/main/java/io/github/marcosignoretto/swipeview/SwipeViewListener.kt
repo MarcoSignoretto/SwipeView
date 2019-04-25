@@ -1,4 +1,4 @@
-package it.marcosignoretto.swipeview
+package io.github.marcosignoretto.swipeview
 
 /**
  * Created by
