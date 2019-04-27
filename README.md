@@ -18,20 +18,16 @@ implementation 'io.github.marcosignoretto:swipeview:1.0.0'
 
 ## Usage
 
-SwipeView behaves like every other Android view, it supports state saving (open or closed) if an id is associated with that view.
-
-You can specify the `layout` you want to use as a `front_layout` and the one you want to use as `back_layout`.
-
 ### Layout
 
-#### Swipe view with default layout
+#### Swipe view with default layouts
 ```xml
 <io.github.marcosignoretto.swipeview.SwipeView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
 
-#### Swipe view with custom front and back layout
+#### Swipe view with custom front and back layouts
 You can specify the `layout` resource file that you want to use as a `front_layout` and the one you want to use as `back_layout` using the appropriate xml attributes.
 
 ```xml
@@ -52,7 +48,7 @@ To close the view use `close()` instead.
 #### Front view click listener
 You can register a listener for the click on the front view using the normal `setOnClickListener`.
 
-The click on this view is detected only when the view is in the `closed` state.
+The click on this view is detected only when the view is in `closed` state.
 ```kotlin
 view1.setOnClickListener(View.OnClickListener {
     Toast.makeText(this, "Front view clicked", Toast.LENGTH_SHORT).show()
@@ -62,7 +58,7 @@ view1.setOnClickListener(View.OnClickListener {
 #### Back view click listener
 If you want to handle a click on the back view you have to register a listener using `setOnBackViewClickListener`.
 
-The click on this view is detected only when the view is in the `open` state.
+The click on this view is detected only when the view is in `open` state.
 ```kotlin
 view1.setOnBackViewClickListener(View.OnClickListener {
     Toast.makeText(this, "Back view clicked", Toast.LENGTH_SHORT).show()
