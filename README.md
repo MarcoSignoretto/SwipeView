@@ -10,6 +10,25 @@ You can specify the `layout` you want to use as a `front_layout` and the one you
 <img src="snapshots/Screenshot_1555873036.png" width="49%">
 <img src="snapshots/swipeview.gif" width="49%">
 
+## Setup
+
+In your module `build.gradle` include the following dependency
+
+```groovy
+implementation 'io.github.marcosignoretto:swipeview:1.0.0'
+```
+
+For the moment the artifact is not into jCenter so you have to add the following lines to your project `build.gradle`
+
+```
+repositories {
+    ...
+    maven{
+        url "https://dl.bintray.com/marcosignoretto/maven/"
+    }
+}
+```
+
 ## Usage
 
 SwipeView behaves like every other Android view, it supports state saving (open or closed) if an id is associated with that view.
@@ -81,7 +100,6 @@ view1.setOnSwipeViewListener(object : SwipeViewListener {
 ## Future improvements
 
 1. possibility to customize the opening size of the views
-2. Maven
 
 
 
