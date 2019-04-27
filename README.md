@@ -8,6 +8,7 @@ You can specify the `layout` you want to use as a `front_layout` and the one you
 ## Images
 
 <img src="snapshots/Screenshot_1555873036.png" width="49%">
+<img src="snapshots/swipeview.gif" width="49%">
 
 ## Usage
 
