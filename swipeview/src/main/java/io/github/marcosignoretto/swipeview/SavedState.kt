@@ -10,7 +10,7 @@ import android.view.View
  * Android Developer
  * on 2019-04-24.
  */
-class SavedState : View.BaseSavedState {
+internal class SavedState : View.BaseSavedState {
 
     var isOpen: Boolean = false
 

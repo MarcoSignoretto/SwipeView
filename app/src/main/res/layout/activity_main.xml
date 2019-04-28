@@ -15,6 +15,7 @@
 
     <!-- Default with custom layout -->
     <io.github.marcosignoretto.swipeview.SwipeView
+            android:id="@+id/view2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:back_layout="@layout/delete_back_view"
@@ -23,15 +24,10 @@
 
     <!-- Default SwipeView -->
     <io.github.marcosignoretto.swipeview.SwipeView
+            android:id="@+id/view3"
             android:layout_width="match_parent"
+            app:opening_size="100dp"
             android:layout_height="100dp"/>
 
-    <!-- Default with custom layout -->
-    <io.github.marcosignoretto.swipeview.SwipeView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:back_layout="@layout/delete_back_view"
-            app:front_layout="@layout/report_item_front"
-    />
 
 </LinearLayout>

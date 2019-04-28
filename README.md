@@ -13,7 +13,7 @@ You can specify the `layout` you want to use as a `front_layout` and the one you
 In your module `build.gradle` include the following dependency
 
 ```groovy
-implementation 'io.github.marcosignoretto:swipeview:1.0.0'
+implementation 'io.github.marcosignoretto:swipeview:1.1.0'
 ```
 
 ## Usage
@@ -37,6 +37,17 @@ You can specify the `layout` resource file that you want to use as a `front_layo
     android:layout_height="wrap_content"
     app:back_layout="@layout/delete_back_view"
     app:front_layout="@layout/report_item_front"/>
+```
+
+#### Swipe view with custom opening size
+You can specify the opening size as follow:
+
+```xml
+<io.github.marcosignoretto.swipeview.SwipeView
+    android:id="@+id/swipeView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:opening_size="100dp"/>
 ```
 
 ### Code
@@ -82,7 +93,7 @@ view1.setOnSwipeViewListener(object : SwipeViewListener {
 
 ## Future improvements
 
-1. possibility to customize the opening size of the views
+1. Support different opening directions
 
 
 

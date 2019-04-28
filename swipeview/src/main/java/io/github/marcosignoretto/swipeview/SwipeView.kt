@@ -12,7 +12,6 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.ViewCompat
 import it.marcosignoretto.swipeview.R
 
-
 /**
  * Created by
  * Marco Signoretto
@@ -21,7 +20,7 @@ import it.marcosignoretto.swipeview.R
  */
 class SwipeView : ConstraintLayout {
 
-    private var openingSize = OPENING_SIZE
+    private var openingSize = 0.0f
     private var frontViewClickListener: OnClickListener? = null
     private var backViewClickListener: OnClickListener? = null
     private var swipeListener: SwipeViewListener? = null
@@ -51,6 +50,7 @@ class SwipeView : ConstraintLayout {
         var frontLayoutRes = R.layout.front_layout_default
         @LayoutRes
         var backLayoutRes = R.layout.back_layout_default
+        openingSize = -Math.abs(context.resources.getDimension(R.dimen.opening_size_default))
         if (attrs != null) {
             val ta = context.obtainStyledAttributes(attrs, R.styleable.SwipeView)
             frontLayoutRes = ta.getResourceId(
@@ -61,7 +61,12 @@ class SwipeView : ConstraintLayout {
                 R.styleable.SwipeView_back_layout,
                 R.layout.back_layout_default
             )
-//            openingSize = -Math.abs(ta.getDimension(R.styleable.SwipeView_back_layout, OPENING_SIZE))
+            openingSize = -Math.abs(
+                ta.getDimension(
+                    R.styleable.SwipeView_opening_size,
+                    context.resources.getDimension(R.dimen.opening_size_default)
+                )
+            )
             ta.recycle()
         }
         // Inflate views
@@ -188,9 +193,5 @@ class SwipeView : ConstraintLayout {
         animator.start()
         isOpen = false
         swipeListener?.onClose()
-    }
-
-    companion object {
-        private const val OPENING_SIZE = -160f
     }
 }
