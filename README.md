@@ -1,4 +1,6 @@
 # SwipeView
+[ ![Download](https://api.bintray.com/packages/marcosignoretto/maven/io.github.marcosignoretto%3Aswipeview/images/download.svg) ](https://bintray.com/marcosignoretto/maven/io.github.marcosignoretto%3Aswipeview/_latestVersion)
+
 A swipe view for Android
 
 SwipeView behaves like every other Android view, it supports state saving (open or closed) if an id is associated with that view.
