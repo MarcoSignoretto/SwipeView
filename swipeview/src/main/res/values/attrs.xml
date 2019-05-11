@@ -4,5 +4,9 @@
         <attr name="front_layout" format="reference"/>
         <attr name="back_layout" format="reference"/>
         <attr name="opening_size" format="dimension"/>
+        <attr name="opening_side" format="enum">
+            <enum name="right" value="0"/>
+            <enum name="left" value="1"/>
+        </attr>
     </declare-styleable>
 </resources>

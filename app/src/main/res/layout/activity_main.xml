@@ -29,5 +29,15 @@
             app:opening_size="100dp"
             android:layout_height="100dp"/>
 
+    <!-- Default SwipeView -->
+    <io.github.marcosignoretto.swipeview.SwipeView
+            android:layout_marginTop="16dp"
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            app:opening_size="100dp"
+            android:layout_height="100dp"
+            app:opening_side="left"
+    />
+
 
 </LinearLayout>

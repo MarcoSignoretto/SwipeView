@@ -23,6 +23,10 @@ internal open class SwipeViewOnTouchListener(context: Context) : View.OnTouchLis
 
     open fun onSwipeRight(distanceX: Float) {}
 
+    open fun onSwipeTop(distanceY: Float) {}
+
+    open fun onSwipeBottom(distanceY: Float) {}
+
     open fun onSwipeComplete() {}
 
     open fun onClick() {}
@@ -47,13 +51,25 @@ internal open class SwipeViewOnTouchListener(context: Context) : View.OnTouchLis
             return true
         }
 
-        override fun onScroll(e1: MotionEvent, e2: MotionEvent, scrollDistanceX: Float, scrollDistanceY: Float): Boolean {
+        override fun onScroll(
+            e1: MotionEvent,
+            e2: MotionEvent,
+            scrollDistanceX: Float,
+            scrollDistanceY: Float
+        ): Boolean {
             val distanceX = e2.x - e1.x
+            val distanceY = e2.y - e1.y
             Log.i("TAG", "distanceX : $distanceX, lastAction: ${e2.action}")
             if (distanceX > 0) {
                 onSwipeRight(distanceX)
             } else {
                 onSwipeLeft(distanceX)
+            }
+
+            if (distanceY > 0) {
+                onSwipeTop(distanceY)
+            } else {
+                onSwipeBottom(distanceY)
             }
             return true
         }

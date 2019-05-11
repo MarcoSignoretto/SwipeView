@@ -21,6 +21,7 @@ import it.marcosignoretto.swipeview.R
 class SwipeView : ConstraintLayout {
 
     private var openingSize = 0.0f
+    private var openingSide = 0
     private var frontViewClickListener: OnClickListener? = null
     private var backViewClickListener: OnClickListener? = null
     private var swipeListener: SwipeViewListener? = null
@@ -51,6 +52,8 @@ class SwipeView : ConstraintLayout {
         @LayoutRes
         var backLayoutRes = R.layout.back_layout_default
         openingSize = -Math.abs(context.resources.getDimension(R.dimen.opening_size_default))
+
+        openingSide = 0
         if (attrs != null) {
             val ta = context.obtainStyledAttributes(attrs, R.styleable.SwipeView)
             frontLayoutRes = ta.getResourceId(
@@ -67,6 +70,7 @@ class SwipeView : ConstraintLayout {
                     context.resources.getDimension(R.dimen.opening_size_default)
                 )
             )
+            openingSide = ta.getInt(R.styleable.SwipeView_opening_side, 0)
             ta.recycle()
         }
         // Inflate views
@@ -96,13 +100,32 @@ class SwipeView : ConstraintLayout {
         }
         frontView.setOnTouchListener(object : SwipeViewOnTouchListener(context) {
             override fun onSwipeLeft(distanceX: Float) {
-                frontView.translationX =
-                    if (frontView.translationX + distanceX < openingSize) openingSize else frontView.translationX + distanceX
+                if (openingSide == 0) {
+                    frontView.translationX =
+                        if (frontView.translationX + distanceX < openingSize) openingSize else frontView.translationX + distanceX
+                } else if (openingSide == 1) {
+                    frontView.translationX =
+                        if (frontView.translationX + distanceX < 0f) 0f else frontView.translationX + distanceX
+                }
             }
 
             override fun onSwipeRight(distanceX: Float) {
-                frontView.translationX =
-                    if (frontView.translationX + distanceX > 0f) 0f else frontView.translationX + distanceX
+                if (openingSide == 0) {
+                    frontView.translationX =
+                        if (frontView.translationX + distanceX > 0f) 0f else frontView.translationX + distanceX
+                } else if (openingSide == 1) {
+                    frontView.translationX =
+                        if (frontView.translationX + distanceX > -openingSize) -openingSize else frontView.translationX + distanceX
+                }
+
+            }
+
+            override fun onSwipeTop(distanceY: Float) {
+
+            }
+
+            override fun onSwipeBottom(distanceY: Float) {
+
             }
 
             override fun onClick() {
@@ -114,10 +137,18 @@ class SwipeView : ConstraintLayout {
             }
 
             override fun onSwipeComplete() {
-                if (frontView.translationX > (openingSize / 2f)) { // close it
-                    close()
-                } else { // open it
-                    open()
+                if (openingSide == 0) {
+                    if (frontView.translationX > (openingSize / 2f)) { // close it
+                        close()
+                    } else { // open it
+                        open()
+                    }
+                } else if (openingSide == 1) {
+                    if (frontView.translationX < (-openingSize / 2f)) { // close it
+                        close()
+                    } else { // open it
+                        open()
+                    }
                 }
             }
         })
@@ -173,13 +204,23 @@ class SwipeView : ConstraintLayout {
      * Open the swipe view
      */
     fun open() {
-        val animator = ValueAnimator.ofFloat(frontView.translationX, openingSize).setDuration(200)
-        animator.addUpdateListener {
-            frontView.translationX = it.animatedValue as Float
+        if (openingSide == 0) {
+            val animator = ValueAnimator.ofFloat(frontView.translationX, openingSize).setDuration(200)
+            animator.addUpdateListener {
+                frontView.translationX = it.animatedValue as Float
+            }
+            animator.start()
+            isOpen = true
+            swipeListener?.onOpen()
+        } else if (openingSide == 1) {
+            val animator = ValueAnimator.ofFloat(frontView.translationX, -openingSize).setDuration(200)
+            animator.addUpdateListener {
+                frontView.translationX = it.animatedValue as Float
+            }
+            animator.start()
+            isOpen = true
+            swipeListener?.onOpen()
         }
-        animator.start()
-        isOpen = true
-        swipeListener?.onOpen()
     }
 
     /**
